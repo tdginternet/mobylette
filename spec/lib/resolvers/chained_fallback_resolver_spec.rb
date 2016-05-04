@@ -16,7 +16,7 @@ module Mobylette
               it "should change details[:formats] to the fallback array" do
                 details = { formats: [fallback_chain.keys.first] }
                 details.stub(:dup).and_return(details)
-                subject.send(:find_templates, "", "", "", details)
+                subject.send(:find_templates, "", "", "", details, false)
                 details[:formats].should == fallback_chain.values.first
               end
 
@@ -33,7 +33,7 @@ module Mobylette
               it "should change details[:formats] to the fallback array" do
                 details = { formats: [format] } 
                 details.stub(:dup).and_return(details)
-                subject.send(:find_templates, "", "", "", details)
+                subject.send(:find_templates, "", "", "", details, false)
                 details[:formats].should == fallback_array
               end
             end
